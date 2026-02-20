@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>untuk adiskuww yang paling gemasszz❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',cursive;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    overflow-x:hidden;
+    color:white;
+    text-align:center;
+    transition:1s;
+}
+
+/* Opening */
+#opening{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#ff6b81;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:10;
+}
+#opening button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+/* Card */
+.container{ padding:40px 20px; }
+
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    padding:30px;
+    border-radius:25px;
+    max-width:700px;
+    margin:auto;
+    box-shadow:0 0 40px rgba(0,0,0,0.2);
+    animation:fadeIn 2s ease;
+}
+
+/* Glow Title */
+h1{
+    font-size:2.5em;
+    text-shadow:0 0 10px #fff,0 0 20px #ff6b81,0 0 40px #ff6b81;
+}
+
+/* Typewriter */
+#typeText{
+    font-size:20px;
+    min-height:120px;
+    line-height:1.7em;
+}
+
+/* Gallery */
+.gallery img{
+    width:120px;
+    height:120px;
+    object-fit:cover;
+    border-radius:15px;
+    margin:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+.gallery img:hover{
+    transform:scale(1.15);
+}
+
+/* Popup Zoom */
+#popup{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+#popup img{
+    max-width:80%;
+    border-radius:20px;
+}
+
+/* Floating Hearts */
+.heart{
+    position:fixed;
+    bottom:-10px;
+    animation:float 5s linear infinite;
+}
+@keyframes float{
+    to{transform:translateY(-110vh);opacity:0;}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;}
+}
+
+button.theme{
+    margin-top:20px;
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div id="opening">
+    <h1>bukaaa yaaa ❤️</h1>
+    <button onclick="start()">Buka</button>
+</div>
+
+<div class="container">
+<div class="card">
+
+<h1>happyyy birthday my sweetheart</h1>
+<h2>speciallll for my mineeee</h2>
+
+<p id="typeText"></p>
+<h3 id="timer"></h3>
+
+<button class="theme" onclick="changeTheme()">Ganti Warna 💗</button>
+
+<h2>sedikit foto gemas kamuuu📸</h2>
+<div class="gallery">
+    <img src="img/foto1.jpeg">
+    <img src="img/foto2.jpeg">
+    <img src="img/foto3.jpeg">
+</div>
+
+</div>
+</div>
+
+<div id="popup" onclick="closePopup()">
+    <img id="popupImg">
+</div>
+
+<audio id="music" loop>
+    <source src="musik.mp3" type="audio/mp3">
+</audio>
+
+<script>
+/* START PAGE + MUSIC FADE IN */
+function start(){
+    document.getElementById("opening").style.display="none";
+    const music=document.getElementById("music");
+    music.volume=0;
+    music.play();
+
+    let vol=0;
+    const fade=setInterval(()=>{
+        if(vol<1){ vol+=0.05; music.volume=vol; }
+        else clearInterval(fade);
+    },200);
+
+    typeWriter();
+}
+
+/* TYPEWRITER TEXT */
+const text=`di hari ulang tahun kamu ini...
+aku cuma mau bilang
+
+bukan tentang hadiah
+dan bukan tentang kejutan.
+
+tapi tentang betapa berharganya kamu buat aku.
+
+kamu itu rumah.
+kamu itu alasan aku tetap kuat.
+dan semogaaaa
+aku bisa terus ada di setiap cerita hidup kamu yaaa
+
+selamat ulang tahun yaaa walaupun semua orang hampir gasuka sama kepala dua ini wkwkwk tapii 
+haruss tetepp dilewatii, pastii banyak pelajaran disetiap langkah yang kamu jalani semoga kamu ambil
+pelajaran yang baiknya disetiapp langkahh" kamuuu yang jeleknya mahh hempaskan sajaa hehehe, 
+akuuu selaluu banggaa ada disetiap proses kamu dan selalu bersyukur ketemu orangg kaya kamuu. 
+sekali lagiii happy birthdayyy yaaa adisskuwww i lovee u moreee dan semoga aku masih bisa
+temanii kamuu di ulang tahun yang akan datang dan selamanyaa aamiinn❤️`;
+
+let i=0;
+function typeWriter(){
+    if(i<text.length){
+        document.getElementById("typeText").innerHTML+=text.charAt(i);
+        i++;
+        setTimeout(typeWriter,40);
+    }
+}
+
+/* FLOATING HEART */
+setInterval(()=>{
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(Math.random()*20+10)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),5000);
+},300);
+
+/* HITUNG HARI JADIAN (UBAH TANGGAL DI SINI) */
+const startDate=new Date("2024-08-01");
+setInterval(()=>{
+    let now=new Date();
+    let diff=now-startDate;
+    let days=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("timer").innerHTML=
+    "Sudah "+days+" hari aku bersyukur kenal kamu 💖";
+},1000);
+
+/* GANTI TEMA */
+let toggle=false;
+function changeTheme(){
+    document.body.style.background=
+    toggle?"linear-gradient(135deg,#ff9a9e,#fad0c4)"
+          :"linear-gradient(135deg,#a18cd1,#fbc2eb)";
+    toggle=!toggle;
+}
+
+/* ZOOM FOTO */
+document.querySelectorAll(".gallery img").forEach(img=>{
+    img.onclick=()=>{
+        document.getElementById("popup").style.display="flex";
+        document.getElementById("popupImg").src=img.src;
+    }
+});
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+}
+</script>
+
+</body>
+</html>
